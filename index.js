@@ -1,7 +1,7 @@
 //variables
 
-const startStopBtn = document.querySelector('startStopBtn');
-const resetBtn = document.querySelector('resetBtn');
+const startStopBtn = document.querySelector('#startStopBtn');
+const resetBtn = document.querySelector('#resetBtn');
 
 // Initialize time value
 
@@ -17,7 +17,7 @@ let leadingHours = 0;
 
 //variables for set interval timer status
 
-let timerInternal = null;
+let timerInterval = null;
 let timerStatus = "stopped";
 
 //Stopwatch function
@@ -57,39 +57,30 @@ function stopWatch() {
     let displayTimer = document.getElementById('timer').innerText = leadingHours + ":" + leadingMinutes + ":" + leadingSeconds
 }
 
-//window.setInterval(stopWatch, 1000);
+//functions for start and stop button;
 
 startStopBtn.addEventListener('click', function(){
 
     if(timerStatus === "stopped"){
-        timerInternal = window.setInterval(stopWatch, 1000);
+        timerInterval = window.setInterval(stopWatch, 1000);
         document.getElementById('startStopBtn').innerHTML = `<i class = "fa-solid fa-pause" id= "pause"></i>`;
         timerStatus = "started";
     }else {
-        window.clearInterval(timerInternal);
+        window.clearInterval(timerInterval);
         document.getElementById('startStopBtn').innerHTML = `<i class = "fa-solid fa-play" id= "play"></i>`;
         timerStatus = "stopped";
     }
 });
 
-
-
-
-
-
-
-
-
-
-
-
+//resetBtn function
 
 resetBtn.addEventListener('click', function() {
+
+    window.clearInterval(timerInterval);
+
     leadingSeconds = "00";
     leadingMinutes = "00";
     leadingHours = "00";
-
-    clearInterval(stopWatch)
 
     document.getElementById('timer').innerHTML = leadingHours + ":" + leadingMinutes + ":" + leadingSeconds
 })
