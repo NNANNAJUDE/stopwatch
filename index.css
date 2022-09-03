@@ -1,0 +1,50 @@
+body{
+    height: 100vh;
+    background: url(img/swima.jpg) no-repeat center center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+    background-color: #fff;
+    width: 60%;
+    height: 250px;
+    border-radius: 30px;
+    box-shadow: 0px 0px 3px;
+}
+
+#timer {
+    width: 100%;
+    font-size: 72px;
+    text-align: center;
+    margin: 0px auto;
+    padding: 35px;
+}
+.buttons {
+    text-align: center;
+}
+
+button {
+    margin: 0 10px;
+    border: none;
+}
+
+button i {
+    font-size: 2rem;
+    padding: 10px;
+    color: #fff;
+    width: 50px;
+}
+
+#play{
+    background-color: green;
+}
+
+#pause{
+    background-color: orange;
+}
+
+#reset{
+    background-color: red;
+}
